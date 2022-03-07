@@ -1,3 +1,5 @@
+import { StatusType } from "../../types";
+
 export type AssignedToType = {
    person_name: string;
    status: string;
@@ -29,5 +31,5 @@ export type FetchedDataType = {
 
 export type WorkOrdersType = {
 ordersList: OrderType[],
-status: 'loading' | 'succeeded' | 'failed' | null,
+status: StatusType,
 }

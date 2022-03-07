@@ -25,20 +25,20 @@ export const workOrders = createSlice({
          .addCase(
             fetchWorkOrders.pending,
             (state: WorkOrdersType) => {
-               state.status = 'loading'
+               state.status = 'LOADING'
             }
          )
          .addCase(
             fetchWorkOrders.fulfilled,
             (state: WorkOrdersType, action: {payload: OrderType[]}) => {
-               state.status = 'succeeded'
+               state.status = 'SUCCEEDED'
                state.ordersList = action.payload
             }
          )
          .addCase(
             fetchWorkOrders.rejected,
             (state: WorkOrdersType) => {
-               state.status = 'failed'
+               state.status = 'FAILED'
             }
          );
       },
