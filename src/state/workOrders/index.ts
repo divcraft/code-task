@@ -1,23 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-type workOrdersType = any[];
+import { FetchedDataType, WorkOrdersType, OrderType } from "./types";
 
-type initialStateType = {
-   ordersList:workOrdersType,
-   status: string | null,
-}
-
-const initialState: initialStateType = {
+const initialState: WorkOrdersType = {
    ordersList: [],
    status: null,
-};
+   }
 
 export const fetchWorkOrders = createAsyncThunk(
    'workOrders/fetchWorkOrders', 
    () => {
       return fetch('data/index.json')
          .then(res => res.json())
-         .then(data => data.response.data)
+         .then((data: FetchedDataType) => data.response.data)
    },
  );
 
@@ -29,24 +24,25 @@ export const workOrders = createSlice({
       builder
          .addCase(
             fetchWorkOrders.pending,
-            (state: initialStateType) => {
+            (state: WorkOrdersType) => {
                state.status = 'loading'
             }
          )
          .addCase(
             fetchWorkOrders.fulfilled,
-            (state: initialStateType, action: {payload: any}) => {
+            (state: WorkOrdersType, action: {payload: OrderType[]}) => {
                state.status = 'succeeded'
                state.ordersList = action.payload
             }
          )
          .addCase(
             fetchWorkOrders.rejected,
-            (state: initialStateType) => {
+            (state: WorkOrdersType) => {
                state.status = 'failed'
             }
-         )
-   }
-});
+         );
+      },
+   },
+);
 
 export default workOrders.reducer;
