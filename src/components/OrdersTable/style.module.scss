@@ -1,0 +1,19 @@
+.tableContainer {
+   border: solid 1px black;
+   th, td {
+      border: solid 1px lightgray;
+      padding: 5px 10px;
+   }
+   ul {
+      padding-left: 15px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      li {
+         span {
+            color: rgb(153, 153, 153);
+         }
+      }
+   }
+}
