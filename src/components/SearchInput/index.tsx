@@ -1,21 +1,22 @@
 import { ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { changeSearch } from "../../state/searchResult";
+import { changeSearch } from "../../state/searchValue";
 import { RootState } from "../../state";
+import styles from './style.module.scss';
 
 export const SearchInput = () => {
    const dispatch = useDispatch();
-   const searchResult = useSelector((state: RootState) => state.searchResult);
+   const searchValue = useSelector((state: RootState) => state.searchValue);
    const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
       dispatch(changeSearch(e.target.value))
    };
    return (
-      <div>
+      <div className={styles.inputContainer}>
          <input 
             type="search" 
             placeholder="Search..." 
             onChange={(e) => handleSearchInput(e)}
-            value={searchResult}
+            value={searchValue}
          />
       </div>
    )

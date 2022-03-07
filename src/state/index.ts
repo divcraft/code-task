@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import workOrders from './workOrders'
-import searchResult from './searchResult'
+import searchValue from './searchValue'
 
 export const store = configureStore({
   reducer: {
    workOrders,
-   searchResult,
+   searchValue,
   },
 })
 
