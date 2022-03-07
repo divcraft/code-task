@@ -1,10 +1,13 @@
 import React from 'react';
+import { Provider } from 'react-redux'
+import { List } from './components/List';
+import { store } from './state'
 
 function App() {
   return (
-    <div>
-      app
-    </div>
+    <Provider store={store}>
+      <List />
+    </Provider>
   );
 }
 
