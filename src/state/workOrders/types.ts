@@ -29,5 +29,5 @@ export type FetchedDataType = {
 
 export type WorkOrdersType = {
 ordersList: OrderType[],
-status: string | null,
+status: 'loading' | 'succeeded' | 'failed' | null,
 }
