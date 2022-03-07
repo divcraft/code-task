@@ -9,45 +9,47 @@ export const OrdersTable = () => {
    return (
       <>
          {ordersList.length > 0 && (
-            <table className={styles.tableContainer}>
-               <thead>
-                  <tr>
-                     <th>WO ID</th>
-                     <th>Description</th>
-                     <th>Received date</th>
-                     <th>Assigned to</th>
-                     <th>Status</th>
-                     <th>Priority</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  {searchResult.length > 0 ? 
-                     searchResult.map(order => (
-                        <tr key={order.work_order_id}>
-                           <td>{order.work_order_id}</td>
-                           <td>{order.description}</td>
-                           <td>{order.received_date}</td>
-                           <td>
-                              {order.assigned_to.length > 0 && (
-                              <ul>
-                                 {order.assigned_to.map(assigner => (
-                                    <li key={assigner.person_name}>
-                                       <div>{assigner.person_name}</div>
-                                       <span>{assigner.status}</span>
-                                    </li>
-                                 ))}
-                              </ul>
-                              )}
-                           </td>
-                           <td>{order.status}</td>
-                           <td>{order.priority}</td>
-                        </tr>
-                     )) : (
-                        <div>Brak wyników wyszukiwania.</div>
-                     )
-                  }
-               </tbody>
-            </table> 
+            <div className={styles.tableContainer}>
+               <table>
+                  <thead>
+                     <tr>
+                        <th>WO ID</th>
+                        <th>Description</th>
+                        <th>Received date</th>
+                        <th>Assigned to</th>
+                        <th>Status</th>
+                        <th>Priority</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     {searchResult.length > 0 ? 
+                        searchResult.map(order => (
+                           <tr key={order.work_order_id}>
+                              <td>{order.work_order_id}</td>
+                              <td>{order.description}</td>
+                              <td>{order.received_date}</td>
+                              <td>
+                                 {order.assigned_to.length > 0 && (
+                                 <ul>
+                                    {order.assigned_to.map(assigner => (
+                                       <li key={assigner.person_name}>
+                                          <div>{assigner.person_name}</div>
+                                          <span>{assigner.status}</span>
+                                       </li>
+                                    ))}
+                                 </ul>
+                                 )}
+                              </td>
+                              <td>{order.status}</td>
+                              <td>{order.priority}</td>
+                           </tr>
+                        )) : (
+                           <div>Brak wyników wyszukiwania.</div>
+                        )
+                     }
+                  </tbody>
+               </table> 
+            </div>
          )}
       </>
    );

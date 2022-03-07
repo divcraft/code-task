@@ -4,6 +4,7 @@ import { RootState } from "../../state";
 import { fetchWorkOrders } from "../../state/workOrders";
 import { OrdersTable, SearchInput } from "../../components";
 import { FetchedComponent } from "../../hoc";
+import styles from './style.module.scss';
 
 export const OrdersContent = () => {
    const dispatch = useDispatch();
@@ -12,10 +13,12 @@ export const OrdersContent = () => {
      dispatch(fetchWorkOrders());
    }, []);
    return (
-      <div>
-         <h1>Orders table</h1>
-         <SearchInput />
-         <FetchedComponent component={OrdersTable} status={status} />
+      <div className={styles.contentWrapper}>
+         <div className={styles.contentContainer}>
+            <h1>Orders table</h1>
+            <SearchInput />
+            <FetchedComponent component={OrdersTable} status={status} />
+         </div>
       </div>
    )
 };

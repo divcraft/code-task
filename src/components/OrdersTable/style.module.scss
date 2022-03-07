@@ -1,5 +1,12 @@
 .tableContainer {
-   border: solid 1px black;
+   overflow-x: scroll;
+   
+   @media(min-width: 620px) {
+      overflow-x: auto;
+   }
+   table {
+      border: solid 1px black;
+   }
    th, td {
       border: solid 1px lightgray;
       padding: 5px 10px;
