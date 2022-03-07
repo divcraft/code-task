@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../state";
 import { fetchWorkOrders } from "../../state/workOrders";
-import { OrdersTable } from "../../components";
+import { OrdersTable, SearchInput } from "../../components";
 import { FetchedComponent } from "../../hoc";
 
 export const OrdersContent = () => {
@@ -14,6 +14,7 @@ export const OrdersContent = () => {
    return (
       <div>
          <h1>Orders table</h1>
+         <SearchInput />
          <FetchedComponent component={OrdersTable} status={status} />
       </div>
    )
