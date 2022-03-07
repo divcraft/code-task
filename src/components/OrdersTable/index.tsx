@@ -44,7 +44,7 @@ export const OrdersTable = () => {
                               <td>{order.priority}</td>
                            </tr>
                         )) : (
-                           <div>Brak wyników wyszukiwania.</div>
+                           <div>No searching result.</div>
                         )
                      }
                   </tbody>
